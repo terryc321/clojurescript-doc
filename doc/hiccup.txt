@@ -461,22 +461,274 @@ html comment
 <!-- This is a comment -->
 
 --------------------------------------------------------------------
+colours
+
+[:h1 {:style {:background-color "DodgerBlue"}} "Hello World!"]
+
+ <h1 style="background-color:DodgerBlue;">Hello World</h1>
 --------------------------------------------------------------------
+
+[:p {:style {:background-color "Tomato"}} "lorem ipsum"]
+
+<p style="background-color:Tomato;">Lorem ipsum...</p>
 --------------------------------------------------------------------
+[:h1 {:style {:color "Tomato"}} "Hello World"]
+
+<h1 style="color:Tomato;">Hello World</h1>
+
 --------------------------------------------------------------------
+
+[:p {:style {:color "DodgerBlue"}} "Lorem ipsum"]
+
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+
 --------------------------------------------------------------------
+[:p {:style {:color "MediumSeaGreen"}} "Ut wisi enim.."]
+
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p> 
+
 --------------------------------------------------------------------
+
+[:h1 {:style {:border "2px solid Tomato"}} "Hello World"]
+<h1 style="border:2px solid Tomato;">Hello World</h1>
 --------------------------------------------------------------------
+
+[:h1 {:style {:border "2px solid DodgerBlue"}} "Hello World"]
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
 --------------------------------------------------------------------
+
+[:h1 {:style {:border "2px solid Violet"}} "Hello World"]
+<h1 style="border:2px solid Violet;">Hello World</h1>
+
 --------------------------------------------------------------------
+
+[:h1 {:style {:background-color "rgb(255,99,71)"}} "..."]
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
 --------------------------------------------------------------------
+
+[:h1 {:style {:background-color "#ff6347"}} "..."]
+<h1 style="background-color:#ff6347;">...</h1>
 --------------------------------------------------------------------
+[:h1 {:style {:background-color "hsl(9,100%,64%"}} "..."]
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+
 --------------------------------------------------------------------
+              
+[:h1 {:style {:background-color "rgba(255,99,71,0.5)"}} "..."]
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
 --------------------------------------------------------------------
+
+
+[:h1 {:style {:background-color "hsla(9, 100%, 64%, 0.5)"}} "..."]
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
 --------------------------------------------------------------------
+
+CSS
+inline css
+
 --------------------------------------------------------------------
+<!--
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+      h1   {color: blue;}
+            p    {color: red;}
+                  </style>
+                  </head>
+                  <body>
+
+                  <h1>This is a heading</h1>
+                  <p>This is a paragraph.</p>
+
+                  </body>
+                  </html>
+                  -->
+                  
 --------------------------------------------------------------------
+
+external style sheets
+                  
+ <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+                  </html>
+                  
+
 --------------------------------------------------------------------
+styles.css
+                  
+body {
+  background-color: powderblue;
+}
+h1 {
+  color: blue;
+}
+p {
+  color: red;
+}                  
+--------------------------------------------------------------------
+p {
+  border: 1px solid powderblue;
+}
+
+--------------------------------------------------------------------
+margin
+margin defines a region outside of box
+
+p {
+  border: 1px solid powderblue;
+  margin: 50px;
+}
+
+
+--------------------------------------------------------------------
+css and id element
+
+
+<p id="p01">I am different</p>
+
+#p01 {
+  color: blue;
+}
+
+
+<p class="error">I am different</p>
+
+p.error {
+  color: red;
+}
+
+
+
+--------------------------------------------------------------------
+external css references
+
+<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+
+ <link rel="stylesheet" href="/html/styles.css">
+
+ <link rel="stylesheet" href="styles.css">
+
+
+
+--------------------------------------------------------------------
+anchor links - visited or unvisited links
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+
+
+
+--------------------------------------------------------------------
+image
+img
+
+notice how 500px needs to be in quote marks , as 500px is not valid clojurescript
+
+[:img {:src "img/girl.jpg" :alt "girl in a jacket" :style {:width "500px" :height "600px"}}]
+
+ <img src="img/girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;"> 
+
+--------------------------------------------------------------------
+
+                  [:img {:src "img/trulli.jpg"
+                         :alt "some kind of house"
+                         :style {:width "500px" :height "600px"}}]
+
+
+--------------------------------------------------------------------
+
+image as a link
+
+                  [:a {:href "default.asp"}
+                   [:img {:src "img/lion.jpg"
+                          :alt "HTML tutorial"
+                          :style {:width "42px"
+                                  :height "42px"
+                                  :border "0"}}]]
+                  
+                  
+                  
+ <a href="default.asp">
+  <img src="img/lion.jpeg" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+                  </a>
+--------------------------------------------------------------------
+css float
+
+[:p
+ [:img {:src "img/lion.jpeg" alt="a lion" :style {:float "left"
+ :width "100px"
+ :height "100px"}}]
+ "The image will float to the left of the text"]
+
+[:p
+ [:img {:src "img/lion.jpeg" alt="a lion" :style {:float "right"
+ :width "100px"
+ :height "100px"}}]
+ "The image will float to the right of the text"]
+
+--------------------------------------------------------------------
+image map
+clickable area
+
+area rect
+area circle
+
+[:img {:src "img/workplace.jpg" :alt "workplace" :usemap "#workmap"}]
+[:map {:name "workmap"}
+      [:area {:shape "rect" :coords "34,44,270,350" :alt "computer" :href "computer.htm"}]
+      [:area {:shape "rect" :coords "290,172,333,250" :alt "phone" :href "phone.htm"}]	
+      [:area {:shape "circle" :coords "337,300,44" :alt "coffee" :href "coffee.htm"}]]
+
+ <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+
+
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+</map>
+--------------------------------------------------------------------
+background image for entire body of document
+
+
+(set! js/document.body.background "img/clouds.jpg")
+
+
+
+
 --------------------------------------------------------------------
 --------------------------------------------------------------------
 --------------------------------------------------------------------

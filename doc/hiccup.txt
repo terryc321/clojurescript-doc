@@ -275,17 +275,19 @@ anchor element with href link
 document.body.bgColor = "powderblue";
 
 --------------------------------------------------------------------
+color
 
-
+[:h1 {:style {:color "blue"}} "this is a heading"]
 
 <h1 style="color:blue">This is a heading</h1>
 
-
 --------------------------------------------------------------------
-
+[:p {:style {:color "red"}} "this is a paragraph"]
 
 <p style="color:red">This is a paragraph</p>
 --------------------------------------------------------------------
+font-family
+
 [:h1 {:style {:font-family "verdana"}} "this is a heading"]
    
 
@@ -296,6 +298,8 @@ document.body.bgColor = "powderblue";
    
 <p style="font-family:courier;">This is a paragraph.</p>
 --------------------------------------------------------------------
+font-size
+
 [:h1 {:style {:font-size "300%"}} "this is a heading"]
 
 <h1 style="font-size:300%;">This is a heading</h1>
@@ -305,6 +309,180 @@ document.body.bgColor = "powderblue";
 
 <p style="font-size:160%;">This is a paragraph.</p> 
 
+--------------------------------------------------------------------
+
+ <h1 style="text-align:center;">Centered Heading</h1>
+[:h1 {:style {:text-align "center"}} "Centred Heading"]
+
+
+--------------------------------------------------------------------
+[:p {:style {:text-align "center"}} "Centred Heading"]
+
+<p style="text-align:center;">Centered paragraph.</p>
+
+--------------------------------------------------------------------
+
+Formatting elements were designed to display special types of text:
+
+    <b> - Bold text
+    <strong> - Important text
+    <i> - Italic text
+    <em> - Emphasized text
+    <mark> - Marked text
+    <small> - Small text
+    <del> - Deleted text
+    <ins> - Inserted text
+    <sub> - Subscript text
+    <sup> - Superscript text
+
+--------------------------------------------------------------------
+bold
+
+[:p
+ [:b "This text is bold"]
+ ]
+
+--------------------------------------------------------------------
+italic
+
+[:p
+ [:i "This text is italic"]
+ ]
+
+--------------------------------------------------------------------
+strong
+
+[:strong "This is strong text"]
+
+<strong>This is strong text</strong>
+
+--------------------------------------------------------------------
+em
+emphasized
+looks halfway between normal and italic
+
+[:em "This is emphasized text"]
+
+--------------------------------------------------------------------
+mark
+marked text - similar to highlighting with highligher pen
+
+[:mark "This is marked text"]
+
+--------------------------------------------------------------------
+small
+
+[:small "This is small text"]
+
+<small>This is small text</small>
+
+
+--------------------------------------------------------------------
+del
+similar to line-though , as though it had been deleted
+
+[:del "This is deleted text"]
+
+<del>This is deleted text</del>
+
+
+--------------------------------------------------------------------
+ins
+just looks like text with underscored text.
+
+
+[:ins "This is inserted text"]
+
+<ins>This is inserted text</ins>
+
+--------------------------------------------------------------------
+sub
+this is subscript , 
+
+
+ [:sub "This is subscript text"]
+
+<sub>This is subscript text</sub>
+
+--------------------------------------------------------------------
+sup
+this is superscript .
+
+[:sup "This is superscript text"]
+
+<sup>This is superscript</sup>
+
+--------------------------------------------------------------------
+abbr
+abbreviations
+
+
+
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+
+--------------------------------------------------------------------
+QUOTES
+--------------------------------------------------------------------
+quote
+quick short quotes
+
+[:q "Build a future where people live in harmony with nature"]
+
+<q>Build a future where people live in harmony with nature.</q>
+
+--------------------------------------------------------------------
+blockquote
+for long long quotes
+
+[:blockquote "Build a future where people live in harmony with nature"]
+
+<q>Build a future where people live in harmony with nature.</q>
+
+--------------------------------------------------------------------
+
+[:blockquote {:cite "http://www.worldwildlife.org/who/index.html"}
+"For 50 years, WWF has been protecting the future of nature.
+The world's leading conservation organization,
+WWF works in 100 countries and is supported by
+1.2 million members in the United States and
+close to 5 million globally."
+ ]
+
+
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+</blockquote>
+--------------------------------------------------------------------
+comment
+clojurescript comment
+; this is a comment
+
+html comment
+<!-- This is a comment -->
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
 --------------------------------------------------------------------
 --------------------------------------------------------------------
 --------------------------------------------------------------------

@@ -1,4 +1,6 @@
 
+--------------------------------------------------------------------
+Installation process
 
 download leiningen script from https://leiningen.org/
 https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
@@ -70,14 +72,9 @@ localhost:3449/index.html
 
 --------------------------------------------------------------------
 
-clojurescript
+clojurescript is translated into javascript.
+all properties of javascript are therefore inherited by clojurescript.
 
---------------------------------------------------------------------
-clojure is truely multi-threaded.
-clojurescript is single-threaded.
-
---------------------------------------------------------------------
-clojurescript sits on javascript , it is therefore single threaded .
 
 --------------------------------------------------------------------
 clojurescript aside -- advanced
@@ -99,16 +96,102 @@ use @ at symbol , if we do that would be in error.
 --------------------------------------------------------------------
 hiccup 
 
+--------------------------------------------------------------------
+
+this is a header
+
+[:h1 "this is a header"]
+
+<h1>this is a header</h1>
+
+--------------------------------------------------------------------
+
+this is a header with classname "header-class" and text "this is a header"
+
+[:h1 {className="header-class"} "this is a header"]
+
+<h1 className="header-class">this is a header</h1>
+
+--------------------------------------------------------------------
+
+this is a header with id header-id and text "this is a header"
+
+[:h1 {id="header-id"} "this is a header"]
+
+<h1 id="header-id-1">this is a header</h1>
+
+--------------------------------------------------------------------
+
+this is a header with a classname "header-class" and id "header-id-1"
+
+[:h1 { className="header-class" id="header-id-1" } "this is a header"]
+
+<h1 className="header-class" id="header-id-1">this is a header</h1>
+--------------------------------------------------------------------
+
+this is a header with text "my header"
+
+[:h1 "myheader"]
+
+the javascript translation
+<h1>myheader</h1>
+
+--------------------------------------------------------------------
+
+examples so far have only used fixed values, now we move to programming where we
+read the value of a variable.
+
+this is also a header , except now text is taken from key-map app-state.
+because defined app-state as a reagent atom , to read the atom we need to
+put a ampersand @ symbol before the symbol.
+
 [:h1 (: text @app-state)]
+
+this means read app-state reagent atom , extract :text key and make it a header 
+if (:text @app-state) returns "Hello world!" then
+the javascript translation
+
+<h1>Hello world!</h1>
+
+--------------------------------------------------------------------
+
+[:div ]
+
+--------------------------------------------------------------------
+
+here is a div with background "blue"
+
+[:div {:style {:background "blue"}}
+ ]
+
+
+
+
+--------------------------------------------------------------------
+
+[:span ]
+
+--------------------------------------------------------------------
+
+javascript interop
+
+ability to talk to underlying javascript is very useful
+
+
+
+--------------------------------------------------------------------
+(js/alert (document.getElementById "header-id-1"))
+
+[object HTMLHeadingElement]
 
 --------------------------------------------------------------------
 
 
+:on-click #js [(alert "hello world")]
 
-[:h1 className="header-class" id="header1" "this is a header"]
-[:div 
- [:p "this is a paragraph"]
-      ]
+--------------------------------------------------------------------
+
+
 
 
 

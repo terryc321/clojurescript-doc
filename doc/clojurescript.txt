@@ -1,0 +1,25 @@
+
+clojurescript is translated into javascript.
+all properties of javascript are therefore inherited by clojurescript.
+
+translation is into the language of the browser.
+the browser only sees 
+
+--------------------------------------------------------------------
+clojurescript aside -- advanced
+
+(defonce app-state (atom {:text "Hello world!"}))
+this sets up app-state to be a reagent atom 
+
+(:text @app-state)
+this is a function to retrieve :text key from key-map
+notice @ at symbol.
+this enables reading the reagent atom called app-state
+
+when we write to app-state using reset! or swap! we do not need to
+use @ at symbol , if we do that would be in error.
+(reset! app-state ...)
+(swap! app-state ...)
+
+
+

@@ -1,0 +1,36 @@
+tutorial
+
+-------------------------------------------------------
+
+click a button and get a hello world popup
+
+(defn hello-world []
+  [:div
+   [:button {:on-click (fn [evt]
+                        (js/alert "hello world"))
+            }
+    "click me"]
+   ]
+  )
+
+-------------------------------------------------------
+
+simple counter
+
+
+
+-------------------------------------------------------
+(def str (atom ""))
+(def counter (atom 0))
+
+(defn hello-world []
+  [:div
+   [:button {:on-click (fn [evt]
+   	    	       (swap! count inc))
+            }
+    @str]
+   ]
+  )
+-------------------------------------------------------
+
+

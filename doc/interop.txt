@@ -1,0 +1,45 @@
+interop
+
+-------------------------------------------------------
+call javascript routine from clojure script
+
+(defn hello-world []
+  [:div
+   [:p "Hello world"]
+   [:button {:on-click (fn [evt]
+                        (js/alert "hello world"))
+            }
+    "click me"]
+   ]
+  )
+
+-------------------------------------------------------
+
+(console.log "square root of 2 is " (js/Math.sqrt 2))
+square root of 2 is  1.4142135623730951
+
+(console.log "square root of my 2nd 2 is " (. js/Math sqrt 2))
+square root of my 2nd 2 is 1.4142135623730951
+
+-------------------------------------------------------
+
+
+
+
+
+-------------------------------------------------------
+call javascript library from clojure script
+
+-------------------------------------------------------
+call clojurescript routine from javascript
+
+
+-------------------------------------------------------
+call clojurescript library from javascript
+
+
+
+
+
+
+

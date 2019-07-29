@@ -4,6 +4,7 @@ tutorial
 
 click a button and get a hello world popup
 
+-------------------------------------------------------
 (defn hello-world []
   [:div
    [:button {:on-click (fn [evt]
@@ -14,23 +15,36 @@ click a button and get a hello world popup
   )
 
 -------------------------------------------------------
-
 simple counter
 
 
 
 -------------------------------------------------------
-(def str (atom ""))
-(def counter (atom 0))
+(def s (atom "click me"))
+(def count (atom 0))
 
 (defn hello-world []
   [:div
    [:button {:on-click (fn [evt]
-   	    	       (swap! count inc))
+   	    	       (swap! count inc)
+		       (reset! s (str "you clicked me " @count " times" )))
             }
-    @str]
+    @s]
    ]
   )
 -------------------------------------------------------
+javascript equivalent
+<html>
+<body>
+<button onClick="hello">0</button>
+<script>
+function hello(evt){
+	 evt.target.value = evt.target.value + 1;	 
+}
+</script>
+</body>
+</html>
+-------------------------------------------------------
+
 
 
